@@ -4,6 +4,10 @@
 
 ![](./img/demo.gif)
 
+## See themes
+
+You can view the available themes by looking at [THEMES.md](./THEMES.md).
+
 ## Installation
 
 ### Requirements
