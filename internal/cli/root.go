@@ -45,7 +45,7 @@ func SetVersion(v string) {
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&dataPath, "data", "d", "examples/cv.yaml", "Path to the CV YAML file")
+	rootCmd.PersistentFlags().StringVarP(&dataPath, "data", "d", "cv.yaml", "Path to the CV YAML file")
 	rootCmd.PersistentFlags().StringVarP(&outputDir, "output", "o", "output", "Output directory")
 	rootCmd.PersistentFlags().StringVar(&theme, "theme", "modern", "CV theme ("+templates.GetThemeNames()+")")
 }
