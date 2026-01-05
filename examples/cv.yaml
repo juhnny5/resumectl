@@ -1,81 +1,81 @@
-# Configuration du CV
-# Modifiez ce fichier avec vos informations personnelles
+# CV Configuration
+# Edit this file with your personal information
 
 personal:
-  firstName: Jean
-  lastName: Dupont
-  title: Développeur Full Stack
-  email: jean.dupont@email.com
-  phone: "+33 6 12 34 56 78"
-  location: Paris, France
-  linkedin: linkedin.com/in/jeandupont
-  github: github.com/jeandupont
-  website: jeandupont.dev
-  photo: "" # Chemin vers une photo (optionnel)
+  firstName: John
+  lastName: Doe
+  title: Full Stack Developer
+  email: john.doe@email.com
+  phone: "+1 555 123 4567"
+  location: New York, USA
+  linkedin: linkedin.com/in/johndoe
+  github: github.com/johndoe
+  website: johndoe.dev
+  photo: "" # Path to photo (optional)
 
 summary: |
-  Développeur Full Stack passionné avec 5 ans d'expérience dans le développement 
-  d'applications web modernes. Expert en Go, JavaScript et technologies cloud. 
-  Capacité à travailler en équipe et à mener des projets de bout en bout.
+  Passionate Full Stack Developer with 5 years of experience building 
+  modern web applications. Expert in Go, JavaScript and cloud technologies. 
+  Strong team player with end-to-end project delivery skills.
 
 experience:
   - company: Tech Company
-    position: Développeur Senior
-    location: Paris, France
+    position: Senior Developer
+    location: New York, USA
     startDate: "2022-01"
     endDate: "present"
     description: |
-      Développement et maintenance d'applications web à grande échelle.
+      Development and maintenance of large-scale web applications.
     highlights:
-      - Conception et développement d'APIs REST en Go
-      - Migration d'une architecture monolithique vers des microservices
-      - Mise en place de pipelines CI/CD avec GitLab
-      - Mentorat de développeurs juniors
+      - Design and development of REST APIs in Go
+      - Migration from monolithic architecture to microservices
+      - CI/CD pipeline implementation with GitLab
+      - Mentoring junior developers
 
-  - company: Startup Innovation
-    position: Développeur Full Stack
-    location: Lyon, France
+  - company: Innovation Startup
+    position: Full Stack Developer
+    location: San Francisco, USA
     startDate: "2020-03"
     endDate: "2021-12"
     description: |
-      Développement de produits web innovants dans un environnement agile.
+      Development of innovative web products in an agile environment.
     highlights:
-      - Développement frontend avec React et TypeScript
-      - Backend en Node.js et Go
-      - Intégration de services AWS (Lambda, S3, DynamoDB)
-      - Participation à la définition de l'architecture technique
+      - Frontend development with React and TypeScript
+      - Backend in Node.js and Go
+      - AWS services integration (Lambda, S3, DynamoDB)
+      - Technical architecture design participation
 
-  - company: Agence Web
-    position: Développeur Junior
-    location: Marseille, France
+  - company: Web Agency
+    position: Junior Developer
+    location: Boston, USA
     startDate: "2018-09"
     endDate: "2020-02"
     description: |
-      Création de sites web et applications pour divers clients.
+      Website and application development for various clients.
     highlights:
-      - Développement de sites WordPress personnalisés
-      - Création d'applications web avec PHP et Laravel
-      - Intégration de maquettes responsive
+      - Custom WordPress site development
+      - Web application development with PHP and Laravel
+      - Responsive design integration
 
 education:
-  - institution: École d'Ingénieurs
-    degree: Diplôme d'Ingénieur
-    field: Informatique
-    location: Paris, France
+  - institution: Engineering School
+    degree: Master of Engineering
+    field: Computer Science
+    location: New York, USA
     startDate: "2015"
     endDate: "2018"
-    description: Spécialisation en génie logiciel et systèmes distribués
+    description: Specialization in software engineering and distributed systems
 
-  - institution: Université de Paris
-    degree: DUT
-    field: Informatique
-    location: Paris, France
+  - institution: University of New York
+    degree: Associate Degree
+    field: Computer Science
+    location: New York, USA
     startDate: "2013"
     endDate: "2015"
-    description: Formation généraliste en informatique
+    description: General computer science education
 
 skills:
-  - category: Langages
+  - category: Languages
     items:
       - Go
       - JavaScript/TypeScript
@@ -91,7 +91,7 @@ skills:
       - Gin (Go)
       - Django
 
-  - category: Outils & DevOps
+  - category: Tools & DevOps
     items:
       - Docker
       - Kubernetes
@@ -99,7 +99,7 @@ skills:
       - CI/CD
       - AWS/GCP
 
-  - category: Base de données
+  - category: Databases
     items:
       - PostgreSQL
       - MongoDB
@@ -107,12 +107,12 @@ skills:
       - Elasticsearch
 
 languages:
-  - name: Français
-    level: Natif
-  - name: Anglais
-    level: Courant (C1)
-  - name: Espagnol
-    level: Intermédiaire (B1)
+  - name: English
+    level: Native
+  - name: French
+    level: Fluent (C1)
+  - name: Spanish
+    level: Intermediate (B1)
 
 certifications:
   - name: AWS Solutions Architect Associate
@@ -124,15 +124,15 @@ certifications:
 
 projects:
   - name: Open Source CLI Tool
-    description: Outil en ligne de commande pour automatiser les tâches DevOps
-    url: github.com/jeandupont/cli-tool
+    description: Command-line tool for automating DevOps tasks
+    url: github.com/johndoe/cli-tool
     technologies:
       - Go
       - Docker
       - GitHub Actions
 
-  - name: Application de Gestion
-    description: Application web complète de gestion de projets
+  - name: Project Management App
+    description: Full-featured web application for project management
     url: ""
     technologies:
       - React
@@ -141,6 +141,6 @@ projects:
 
 interests:
   - Open Source
-  - Intelligence Artificielle
-  - Randonnée
-  - Photographie
+  - Artificial Intelligence
+  - Hiking
+  - Photography
