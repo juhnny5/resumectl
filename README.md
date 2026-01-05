@@ -4,9 +4,13 @@
 
 ![](./img/demo.gif)
 
-## See themes
+## Available Themes
 
 You can view the available themes by looking at [THEMES.md](./THEMES.md).
+
+## Examples
+
+For reference, you can use the examples in `examples/`.
 
 ## Installation
 
@@ -48,70 +52,6 @@ resumectl validate
 
 # List available themes
 resumectl themes
-```
-
-## Available Themes
-
-- `modern` - Blue gradient (default)
-- `classic` - Professional black
-- `minimal` - Clean and simple
-- `elegant` - Burgundy colors
-- `tech` - Green/cyan developer style
-
-## YAML Structure
-
-```yaml
-personal:
-  firstName: John
-  lastName: Doe
-  title: Software Engineer
-  email: john@example.com
-  phone: "+1 555 123 4567"
-  location: New York, USA
-  linkedin: linkedin.com/in/johndoe
-  github: github.com/johndoe
-
-summary: |
-  Professional summary...
-
-experience:
-  - company: Company Name
-    position: Job Title
-    location: City
-    startDate: "2022-01"
-    endDate: "present"
-    highlights:
-      - Achievement 1
-      - Achievement 2
-
-education:
-  - institution: University
-    degree: Bachelor
-    field: Computer Science
-    startDate: "2018"
-    endDate: "2022"
-
-skills:
-  - category: Languages
-    items: [Go, Python, JavaScript]
-
-languages:
-  - name: English
-    level: Native
-
-certifications:
-  - name: AWS Solutions Architect
-    issuer: Amazon
-    date: "2023"
-
-projects:
-  - name: Project Name
-    description: Description
-    technologies: [Go, Docker]
-
-interests:
-  - Open Source
-  - Photography
 ```
 
 ![](./img/logo-footer.png)
