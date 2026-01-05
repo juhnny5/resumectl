@@ -1,6 +1,4 @@
-# resumectl
-
-Generate HTML and PDF resumes from a YAML file.
+![](./img/logo-header.gif)
 
 ## Installation
 
@@ -107,3 +105,5 @@ interests:
   - Open Source
   - Photography
 ```
+
+![](./img/logo-footer.png)
