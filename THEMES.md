@@ -23,3 +23,9 @@ Use : `resumectl generate --theme classic`
 Use : `resumectl generate --theme tech`
 
 ![](./img/tech-theme.png)
+
+## `minimal`
+
+Use : `resumectl generate --theme minimal`
+
+![](./img/minimal-theme.png)
