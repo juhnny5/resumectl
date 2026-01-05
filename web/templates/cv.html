@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - {{.Personal.FullName}}</title>
+    <title>Resume - {{.Personal.FullName}}</title>
     <style>
         * {
             margin: 0;
@@ -35,7 +35,7 @@
             background: white;
         }
 
-        /* En-tête */
+        /* Header */
         .header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -78,7 +78,7 @@
             text-decoration: underline;
         }
 
-        /* Contenu principal */
+        /* Main content */
         .main-content {
             display: grid;
             grid-template-columns: 1fr 280px;
@@ -114,13 +114,13 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Résumé */
+        /* Summary */
         .summary {
             color: var(--text-light);
             text-align: justify;
         }
 
-        /* Expérience */
+        /* Experience */
         .experience-item {
             margin-bottom: 20px;
             page-break-inside: avoid;
@@ -178,7 +178,7 @@
             color: var(--primary-color);
         }
 
-        /* Éducation */
+        /* Education */
         .education-item {
             margin-bottom: 15px;
         }
@@ -200,7 +200,7 @@
             color: var(--text-light);
         }
 
-        /* Compétences */
+        /* Skills */
         .skill-category {
             margin-bottom: 12px;
         }
@@ -231,7 +231,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Langues */
+        /* Languages */
         .language-item {
             display: flex;
             justify-content: space-between;
@@ -262,7 +262,7 @@
             font-size: 0.85em;
         }
 
-        /* Projets */
+        /* Projects */
         .project-item {
             margin-bottom: 15px;
         }
@@ -283,7 +283,7 @@
             color: var(--primary-color);
         }
 
-        /* Centres d'intérêt */
+        /* Interests */
         .interests-list {
             display: flex;
             flex-wrap: wrap;
@@ -314,7 +314,7 @@
             }
         }
 
-        /* Impression */
+        /* Print */
         @media print {
             body {
                 font-size: 11pt;
@@ -332,7 +332,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- En-tête -->
+        <!-- Header -->
         <header class="header">
             <div class="header-content">
                 <div class="header-main">
@@ -350,20 +350,20 @@
             </div>
         </header>
 
-        <!-- Contenu principal -->
+        <!-- Main content -->
         <div class="main-content">
-            <!-- Colonne gauche -->
+            <!-- Left column -->
             <div class="left-column">
                 {{if .Summary}}
                 <section class="section">
-                    <h2 class="section-title">Profil</h2>
+                    <h2 class="section-title">Summary</h2>
                     <p class="summary">{{.Summary}}</p>
                 </section>
                 {{end}}
 
                 {{if .Experience}}
                 <section class="section">
-                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    <h2 class="section-title">Professional Experience</h2>
                     {{range .Experience}}
                     <div class="experience-item">
                         <div class="experience-header">
@@ -388,7 +388,7 @@
 
                 {{if .Education}}
                 <section class="section">
-                    <h2 class="section-title">Formation</h2>
+                    <h2 class="section-title">Education</h2>
                     {{range .Education}}
                     <div class="education-item">
                         <div class="education-degree">{{.Degree}} — {{.Field}}</div>
@@ -402,7 +402,7 @@
 
                 {{if .Projects}}
                 <section class="section">
-                    <h2 class="section-title">Projets</h2>
+                    <h2 class="section-title">Projects</h2>
                     {{range .Projects}}
                     <div class="project-item">
                         <div class="project-name">{{.Name}}</div>
@@ -416,11 +416,11 @@
                 {{end}}
             </div>
 
-            <!-- Colonne droite -->
+            <!-- Right column -->
             <div class="right-column">
                 {{if .Skills}}
                 <section class="section">
-                    <h2 class="section-title">Compétences</h2>
+                    <h2 class="section-title">Skills</h2>
                     {{range .Skills}}
                     <div class="skill-category">
                         <div class="skill-category-name">{{.Category}}</div>
@@ -436,7 +436,7 @@
 
                 {{if .Languages}}
                 <section class="section">
-                    <h2 class="section-title">Langues</h2>
+                    <h2 class="section-title">Languages</h2>
                     {{range .Languages}}
                     <div class="language-item">
                         <span class="language-name">{{.Name}}</span>
@@ -460,7 +460,7 @@
 
                 {{if .Interests}}
                 <section class="section">
-                    <h2 class="section-title">Centres d'intérêt</h2>
+                    <h2 class="section-title">Interests</h2>
                     <div class="interests-list">
                         {{range .Interests}}
                         <span class="interest-item">{{.}}</span>
