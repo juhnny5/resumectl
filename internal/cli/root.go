@@ -10,10 +10,11 @@ import (
 )
 
 var (
-	Version   = "dev"
-	dataPath  string
-	outputDir string
-	theme     string
+	Version      = "dev"
+	dataPath     string
+	outputDir    string
+	theme        string
+	primaryColor string
 )
 
 var rootCmd = &cobra.Command{
@@ -27,10 +28,12 @@ from a YAML configuration file containing your information.
 Templates are embedded in the binary with multiple themes available.
 
 Usage examples:
-  resumectl generate                   # Generate HTML and PDF (modern theme)
-  resumectl generate --theme elegant   # Use the elegant theme
-  resumectl generate --html            # Generate HTML only
-  resumectl themes                     # List available themes`,
+  resumectl generate                        # Generate HTML and PDF (modern theme)
+  resumectl generate --theme elegant        # Use the elegant theme
+  resumectl generate --color #ff5733        # Custom color (any theme)
+  resumectl generate --theme tech --color #8b5cf6  # Tech theme with purple
+  resumectl generate --html                 # Generate HTML only
+  resumectl themes                          # List available themes`,
 }
 
 func Execute() {
@@ -48,4 +51,5 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&dataPath, "data", "d", "cv.yaml", "Path to the CV YAML file")
 	rootCmd.PersistentFlags().StringVarP(&outputDir, "output", "o", "output", "Output directory")
 	rootCmd.PersistentFlags().StringVar(&theme, "theme", "modern", "CV theme ("+templates.GetThemeNames()+")")
+	rootCmd.PersistentFlags().StringVar(&primaryColor, "color", "", "Custom primary color for any theme (hex, e.g. #ff5733)")
 }

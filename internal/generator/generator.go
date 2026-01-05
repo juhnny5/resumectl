@@ -17,13 +17,19 @@ import (
 
 // Generator handles CV generation
 type Generator struct {
-	cv        *models.CV
-	theme     string
-	outputDir string
+	cv          *models.CV
+	theme       string
+	customColor string
+	outputDir   string
 }
 
 // New creates a new generator with the specified theme
 func New(yamlPath, theme, outputDir string) (*Generator, error) {
+	return NewWithColor(yamlPath, theme, "", outputDir)
+}
+
+// NewWithColor creates a new generator with theme and custom color
+func NewWithColor(yamlPath, theme, customColor, outputDir string) (*Generator, error) {
 	cv, err := loadCV(yamlPath)
 	if err != nil {
 		return nil, fmt.Errorf("error loading CV: %w", err)
@@ -37,10 +43,16 @@ func New(yamlPath, theme, outputDir string) (*Generator, error) {
 		return nil, err
 	}
 
+	// Validate custom color
+	if customColor != "" && !templates.ValidateHexColor(customColor) {
+		return nil, fmt.Errorf("invalid hex color: %s (use format #RRGGBB)", customColor)
+	}
+
 	return &Generator{
-		cv:        cv,
-		theme:     theme,
-		outputDir: outputDir,
+		cv:          cv,
+		theme:       theme,
+		customColor: customColor,
+		outputDir:   outputDir,
 	}, nil
 }
 
@@ -67,7 +79,7 @@ func (g *Generator) GenerateHTML(outputPath string) error {
 		"join":       strings.Join,
 	}
 
-	tmpl, err := templates.GetParsedTemplate(g.theme, funcMap)
+	tmpl, err := templates.GetParsedTemplateWithColor(g.theme, g.customColor, funcMap)
 	if err != nil {
 		return fmt.Errorf("error loading template: %w", err)
 	}

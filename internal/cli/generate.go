@@ -23,14 +23,16 @@ var generateCmd = &cobra.Command{
 By default, generates both formats (HTML and PDF).
 Use --html or --pdf to generate a single format.
 Use --theme to choose a theme (modern, classic, minimal, elegant, tech).
+Use --color to customize the primary color of any theme.
 
 Examples:
-  resumectl generate                    # Generate HTML and PDF (modern theme)
-  resumectl generate --theme elegant    # Use the elegant theme
-  resumectl generate --theme tech       # Use the tech theme
-  resumectl generate --html             # Generate HTML only
-  resumectl generate --pdf              # Generate PDF only
-  resumectl generate -d my_cv.yaml      # Use a custom YAML file`,
+  resumectl generate                         # Generate HTML and PDF (modern theme)
+  resumectl generate --theme elegant         # Use the elegant theme
+  resumectl generate --color #ff5733         # Custom orange color
+  resumectl generate --theme tech --color #8b5cf6  # Tech theme with purple
+  resumectl generate --html                  # Generate HTML only
+  resumectl generate --pdf                   # Generate PDF only
+  resumectl generate -d my_cv.yaml           # Use a custom YAML file`,
 	Run: runGenerate,
 }
 
@@ -45,13 +47,17 @@ func runGenerate(cmd *cobra.Command, args []string) {
 		log.Fatal("Data file does not exist", "path", dataPath)
 	}
 
-	gen, err := generator.New(dataPath, theme, outputDir)
+	gen, err := generator.NewWithColor(dataPath, theme, primaryColor, outputDir)
 	if err != nil {
 		log.Fatal("Error", "error", err)
 	}
 
 	cv := gen.GetCV()
-	log.Info("Generating CV", "name", cv.Personal.FullName(), "theme", theme)
+	if primaryColor != "" {
+		log.Info("Generating CV", "name", cv.Personal.FullName(), "theme", theme, "color", primaryColor)
+	} else {
+		log.Info("Generating CV", "name", cv.Personal.FullName(), "theme", theme)
+	}
 
 	if err := os.MkdirAll(outputDir, 0755); err != nil {
 		log.Fatal("Error creating output directory", "error", err)
