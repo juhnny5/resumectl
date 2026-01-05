@@ -17,3 +17,9 @@ Use : `resumectl generate --theme modern`
 Use : `resumectl generate --theme classic`
 
 ![](./img/classic-theme.png)
+
+## `tech`
+
+Use : `resumectl generate --theme tech`
+
+![](./img/tech-theme.png)
