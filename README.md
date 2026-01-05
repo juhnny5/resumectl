@@ -1,5 +1,9 @@
 ![](./img/logo-header.gif)
 
+## Demonstration
+
+![](./img/demo.gif)
+
 ## Installation
 
 ### Requirements
