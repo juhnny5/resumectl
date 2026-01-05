@@ -1,0 +1,146 @@
+# Configuration du CV
+# Modifiez ce fichier avec vos informations personnelles
+
+personal:
+  firstName: Jean
+  lastName: Dupont
+  title: Développeur Full Stack
+  email: jean.dupont@email.com
+  phone: "+33 6 12 34 56 78"
+  location: Paris, France
+  linkedin: linkedin.com/in/jeandupont
+  github: github.com/jeandupont
+  website: jeandupont.dev
+  photo: "" # Chemin vers une photo (optionnel)
+
+summary: |
+  Développeur Full Stack passionné avec 5 ans d'expérience dans le développement 
+  d'applications web modernes. Expert en Go, JavaScript et technologies cloud. 
+  Capacité à travailler en équipe et à mener des projets de bout en bout.
+
+experience:
+  - company: Tech Company
+    position: Développeur Senior
+    location: Paris, France
+    startDate: "2022-01"
+    endDate: "present"
+    description: |
+      Développement et maintenance d'applications web à grande échelle.
+    highlights:
+      - Conception et développement d'APIs REST en Go
+      - Migration d'une architecture monolithique vers des microservices
+      - Mise en place de pipelines CI/CD avec GitLab
+      - Mentorat de développeurs juniors
+
+  - company: Startup Innovation
+    position: Développeur Full Stack
+    location: Lyon, France
+    startDate: "2020-03"
+    endDate: "2021-12"
+    description: |
+      Développement de produits web innovants dans un environnement agile.
+    highlights:
+      - Développement frontend avec React et TypeScript
+      - Backend en Node.js et Go
+      - Intégration de services AWS (Lambda, S3, DynamoDB)
+      - Participation à la définition de l'architecture technique
+
+  - company: Agence Web
+    position: Développeur Junior
+    location: Marseille, France
+    startDate: "2018-09"
+    endDate: "2020-02"
+    description: |
+      Création de sites web et applications pour divers clients.
+    highlights:
+      - Développement de sites WordPress personnalisés
+      - Création d'applications web avec PHP et Laravel
+      - Intégration de maquettes responsive
+
+education:
+  - institution: École d'Ingénieurs
+    degree: Diplôme d'Ingénieur
+    field: Informatique
+    location: Paris, France
+    startDate: "2015"
+    endDate: "2018"
+    description: Spécialisation en génie logiciel et systèmes distribués
+
+  - institution: Université de Paris
+    degree: DUT
+    field: Informatique
+    location: Paris, France
+    startDate: "2013"
+    endDate: "2015"
+    description: Formation généraliste en informatique
+
+skills:
+  - category: Langages
+    items:
+      - Go
+      - JavaScript/TypeScript
+      - Python
+      - SQL
+      - HTML/CSS
+
+  - category: Frameworks
+    items:
+      - React
+      - Vue.js
+      - Node.js
+      - Gin (Go)
+      - Django
+
+  - category: Outils & DevOps
+    items:
+      - Docker
+      - Kubernetes
+      - Git
+      - CI/CD
+      - AWS/GCP
+
+  - category: Base de données
+    items:
+      - PostgreSQL
+      - MongoDB
+      - Redis
+      - Elasticsearch
+
+languages:
+  - name: Français
+    level: Natif
+  - name: Anglais
+    level: Courant (C1)
+  - name: Espagnol
+    level: Intermédiaire (B1)
+
+certifications:
+  - name: AWS Solutions Architect Associate
+    issuer: Amazon Web Services
+    date: "2023"
+  - name: Kubernetes Administrator (CKA)
+    issuer: CNCF
+    date: "2022"
+
+projects:
+  - name: Open Source CLI Tool
+    description: Outil en ligne de commande pour automatiser les tâches DevOps
+    url: github.com/jeandupont/cli-tool
+    technologies:
+      - Go
+      - Docker
+      - GitHub Actions
+
+  - name: Application de Gestion
+    description: Application web complète de gestion de projets
+    url: ""
+    technologies:
+      - React
+      - Go
+      - PostgreSQL
+
+interests:
+  - Open Source
+  - Intelligence Artificielle
+  - Randonnée
+  - Photographie

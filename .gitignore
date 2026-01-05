@@ -1,0 +1,20 @@
+# Binaries
+resumectl
+resumectl.exe
+
+# Répertoire de sortie
+output/
+
+# Fichiers de l'IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de test
+*.test
+coverage.out

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - {{.Personal.FullName}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --bg-light: #f3f4f6;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* En-tête */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 40px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-main h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header-main .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        .contact-info div {
+            margin-bottom: 4px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenu principal */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 0;
+        }
+
+        .left-column {
+            padding: 25px 30px;
+        }
+
+        .right-column {
+            background-color: var(--bg-light);
+            padding: 25px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Résumé */
+        .summary {
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* Expérience */
+        .experience-item {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.05em;
+            color: var(--text-color);
+        }
+
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .experience-meta {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .experience-description {
+            margin: 8px 0;
+            color: var(--text-light);
+        }
+
+        .highlights {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlights li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            color: var(--text-color);
+        }
+
+        .highlights li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Éducation */
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-degree {
+            font-weight: 600;
+        }
+
+        .education-institution {
+            color: var(--primary-color);
+        }
+
+        .education-meta {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        /* Compétences */
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-category-name {
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            background-color: white;
+            color: var(--text-color);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Langues */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .language-name {
+            font-weight: 500;
+        }
+
+        .language-level {
+            color: var(--text-light);
+        }
+
+        /* Certifications */
+        .certification-item {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .certification-name {
+            font-weight: 500;
+        }
+
+        .certification-meta {
+            color: var(--text-light);
+            font-size: 0.85em;
+        }
+
+        /* Projets */
+        .project-item {
+            margin-bottom: 15px;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .project-description {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin: 3px 0;
+        }
+
+        .project-tech {
+            font-size: 0.8em;
+            color: var(--primary-color);
+        }
+
+        /* Centres d'intérêt */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .interest-item {
+            background-color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Responsive pour écran */
+        @media screen and (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                text-align: left;
+                margin-top: 15px;
+            }
+        }
+
+        /* Impression */
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-main">
+                    <h1>{{.Personal.FullName}}</h1>
+                    <div class="title">{{.Personal.Title}}</div>
+                </div>
+                <div class="contact-info">
+                    {{if .Personal.Email}}<div>📧 <a href="mailto:{{.Personal.Email}}">{{.Personal.Email}}</a></div>{{end}}
+                    {{if .Personal.Phone}}<div>📱 {{.Personal.Phone}}</div>{{end}}
+                    {{if .Personal.Location}}<div>📍 {{.Personal.Location}}</div>{{end}}
+                    {{if .Personal.LinkedIn}}<div>💼 <a href="https://{{.Personal.LinkedIn}}" target="_blank">{{.Personal.LinkedIn}}</a></div>{{end}}
+                    {{if .Personal.GitHub}}<div>💻 <a href="https://{{.Personal.GitHub}}" target="_blank">{{.Personal.GitHub}}</a></div>{{end}}
+                    {{if .Personal.Website}}<div>🌐 <a href="https://{{.Personal.Website}}" target="_blank">{{.Personal.Website}}</a></div>{{end}}
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Colonne gauche -->
+            <div class="left-column">
+                {{if .Summary}}
+                <section class="section">
+                    <h2 class="section-title">Profil</h2>
+                    <p class="summary">{{.Summary}}</p>
+                </section>
+                {{end}}
+
+                {{if .Experience}}
+                <section class="section">
+                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    {{range .Experience}}
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <span class="experience-title">{{.Position}}</span>
+                                <span class="experience-company"> — {{.Company}}</span>
+                            </div>
+                            <div class="experience-meta">{{.StartDate}} - {{.EndDate}} | {{.Location}}</div>
+                        </div>
+                        {{if .Description}}<p class="experience-description">{{.Description}}</p>{{end}}
+                        {{if .Highlights}}
+                        <ul class="highlights">
+                            {{range .Highlights}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Education}}
+                <section class="section">
+                    <h2 class="section-title">Formation</h2>
+                    {{range .Education}}
+                    <div class="education-item">
+                        <div class="education-degree">{{.Degree}} — {{.Field}}</div>
+                        <div class="education-institution">{{.Institution}}</div>
+                        <div class="education-meta">{{.StartDate}} - {{.EndDate}} | {{.Location}}</div>
+                        {{if .Description}}<p class="experience-description">{{.Description}}</p>{{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Projects}}
+                <section class="section">
+                    <h2 class="section-title">Projets</h2>
+                    {{range .Projects}}
+                    <div class="project-item">
+                        <div class="project-name">{{.Name}}</div>
+                        <p class="project-description">{{.Description}}</p>
+                        {{if .Technologies}}
+                        <div class="project-tech">{{range $i, $t := .Technologies}}{{if $i}}, {{end}}{{$t}}{{end}}</div>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+            </div>
+
+            <!-- Colonne droite -->
+            <div class="right-column">
+                {{if .Skills}}
+                <section class="section">
+                    <h2 class="section-title">Compétences</h2>
+                    {{range .Skills}}
+                    <div class="skill-category">
+                        <div class="skill-category-name">{{.Category}}</div>
+                        <div class="skill-tags">
+                            {{range .Items}}
+                            <span class="skill-tag">{{.}}</span>
+                            {{end}}
+                        </div>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Languages}}
+                <section class="section">
+                    <h2 class="section-title">Langues</h2>
+                    {{range .Languages}}
+                    <div class="language-item">
+                        <span class="language-name">{{.Name}}</span>
+                        <span class="language-level">{{.Level}}</span>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Certifications}}
+                <section class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    {{range .Certifications}}
+                    <div class="certification-item">
+                        <div class="certification-name">{{.Name}}</div>
+                        <div class="certification-meta">{{.Issuer}} — {{.Date}}</div>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Interests}}
+                <section class="section">
+                    <h2 class="section-title">Centres d'intérêt</h2>
+                    <div class="interests-list">
+                        {{range .Interests}}
+                        <span class="interest-item">{{.}}</span>
+                        {{end}}
+                    </div>
+                </section>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

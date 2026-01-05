@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - {{.Personal.FullName}}</title>
+    <style>
+{{THEME_CSS}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-main">
+                    <h1>{{.Personal.FullName}}</h1>
+                    <div class="title">{{.Personal.Title}}</div>
+                </div>
+                <div class="contact-info">
+                    {{if .Personal.Email}}<div class="contact-item"><span class="contact-icon">@</span> <a href="mailto:{{.Personal.Email}}">{{.Personal.Email}}</a></div>{{end}}
+                    {{if .Personal.Phone}}<div class="contact-item"><span class="contact-icon">T</span> {{.Personal.Phone}}</div>{{end}}
+                    {{if .Personal.Location}}<div class="contact-item"><span class="contact-icon">L</span> {{.Personal.Location}}</div>{{end}}
+                    {{if .Personal.LinkedIn}}<div class="contact-item"><span class="contact-icon">in</span> <a href="https://{{.Personal.LinkedIn}}" target="_blank">{{.Personal.LinkedIn}}</a></div>{{end}}
+                    {{if .Personal.GitHub}}<div class="contact-item"><span class="contact-icon">gh</span> <a href="https://{{.Personal.GitHub}}" target="_blank">{{.Personal.GitHub}}</a></div>{{end}}
+                    {{if .Personal.Website}}<div class="contact-item"><span class="contact-icon">w</span> <a href="https://{{.Personal.Website}}" target="_blank">{{.Personal.Website}}</a></div>{{end}}
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Left column -->
+            <div class="left-column">
+                {{if .Summary}}
+                <section class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary">{{.Summary}}</p>
+                </section>
+                {{end}}
+
+                {{if .Experience}}
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    {{range .Experience}}
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <span class="experience-title">{{.Position}}</span>
+                                <span class="experience-company"> - {{.Company}}</span>
+                            </div>
+                            <div class="experience-meta">{{.StartDate}} - {{.EndDate}} | {{.Location}}</div>
+                        </div>
+                        {{if .Description}}<p class="experience-description">{{.Description}}</p>{{end}}
+                        {{if .Highlights}}
+                        <ul class="highlights">
+                            {{range .Highlights}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Education}}
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    {{range .Education}}
+                    <div class="education-item">
+                        <div class="education-degree">{{.Degree}} - {{.Field}}</div>
+                        <div class="education-institution">{{.Institution}}</div>
+                        <div class="education-meta">{{.StartDate}} - {{.EndDate}}{{if .Location}} | {{.Location}}{{end}}</div>
+                        {{if .Description}}<p class="experience-description">{{.Description}}</p>{{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Projects}}
+                <section class="section">
+                    <h2 class="section-title">Projects</h2>
+                    {{range .Projects}}
+                    <div class="project-item">
+                        <div class="project-name">{{.Name}}</div>
+                        <p class="project-description">{{.Description}}</p>
+                        {{if .Technologies}}
+                        <div class="project-tech">{{range $i, $t := .Technologies}}{{if $i}}, {{end}}{{$t}}{{end}}</div>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+            </div>
+
+            <!-- Right column -->
+            <div class="right-column">
+                {{if .Skills}}
+                <section class="section">
+                    <h2 class="section-title">Skills</h2>
+                    {{range .Skills}}
+                    <div class="skill-category">
+                        <div class="skill-category-name">{{.Category}}</div>
+                        <div class="skill-tags">
+                            {{range .Items}}
+                            <span class="skill-tag">{{.}}</span>
+                            {{end}}
+                        </div>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Languages}}
+                <section class="section">
+                    <h2 class="section-title">Languages</h2>
+                    {{range .Languages}}
+                    <div class="language-item">
+                        <span class="language-name">{{.Name}}</span>
+                        <span class="language-level">{{.Level}}</span>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Certifications}}
+                <section class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    {{range .Certifications}}
+                    <div class="certification-item">
+                        <div class="certification-name">{{.Name}}</div>
+                        <div class="certification-meta">{{.Issuer}} - {{.Date}}</div>
+                    </div>
+                    {{end}}
+                </section>
+                {{end}}
+
+                {{if .Interests}}
+                <section class="section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="interests-list">
+                        {{range .Interests}}
+                        <span class="interest-item">{{.}}</span>
+                        {{end}}
+                    </div>
+                </section>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

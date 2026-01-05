@@ -1,0 +1,409 @@
+/* Theme Tech - Vert/Cyan technologique */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0d9488;
+    --secondary-color: #065f5b;
+    --accent-color: #14b8a6;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --bg-color: #ffffff;
+    --bg-light: #f0fdfa;
+    --bg-dark: #0f172a;
+    --border-color: #ccfbf1;
+    --code-bg: #1e293b;
+}
+
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-size: 13px;
+}
+
+.container {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: white;
+}
+
+/* En-tete */
+.header {
+    background: var(--bg-dark);
+    color: white;
+    padding: 35px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: "< />";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4em;
+    opacity: 0.1;
+    color: var(--accent-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.header-main h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--accent-color);
+}
+
+.header-main h1::before {
+    content: "$ ";
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.header-main .title {
+    font-size: 1em;
+    opacity: 0.9;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.header-main .title::before {
+    content: "// ";
+    color: var(--accent-color);
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 0.85em;
+}
+
+.contact-item {
+    margin-bottom: 4px;
+    color: #94a3b8;
+}
+
+.contact-icon {
+    display: inline-block;
+    width: 25px;
+    text-align: center;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    gap: 0;
+}
+
+.left-column {
+    padding: 25px 30px;
+}
+
+.right-column {
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Sections */
+.section {
+    margin-bottom: 25px;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed var(--primary-color);
+}
+
+.section-title::before {
+    content: "## ";
+    color: var(--text-light);
+}
+
+/* Resume */
+.summary {
+    color: var(--text-light);
+    background: var(--bg-light);
+    padding: 15px;
+    border-left: 3px solid var(--primary-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Experience */
+.experience-item {
+    margin-bottom: 22px;
+    page-break-inside: avoid;
+    padding-left: 15px;
+    border-left: 2px solid var(--border-color);
+}
+
+.experience-item:hover {
+    border-left-color: var(--primary-color);
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-header {
+    margin-bottom: 6px;
+}
+
+.experience-title {
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.experience-company {
+    color: var(--primary-color);
+}
+
+.experience-meta {
+    font-size: 0.8em;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+.experience-description {
+    margin: 8px 0;
+    color: var(--text-light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.highlights {
+    list-style: none;
+    padding-left: 0;
+}
+
+.highlights li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 4px;
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.highlights li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Education */
+.education-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 2px solid var(--border-color);
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-degree {
+    font-weight: 700;
+}
+
+.education-institution {
+    color: var(--primary-color);
+}
+
+.education-meta {
+    font-size: 0.8em;
+    color: var(--text-light);
+}
+
+/* Competences */
+.skill-category {
+    margin-bottom: 14px;
+}
+
+.skill-category:last-child {
+    margin-bottom: 0;
+}
+
+.skill-category-name {
+    font-weight: 700;
+    font-size: 0.85em;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+.skill-category-name::before {
+    content: "const ";
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.skill-category-name::after {
+    content: " =";
+    color: var(--text-light);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.skill-tag {
+    background-color: var(--code-bg);
+    color: var(--accent-color);
+    padding: 3px 10px;
+    font-size: 0.75em;
+    border-radius: 3px;
+}
+
+/* Langues */
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.language-name {
+    font-weight: 600;
+}
+
+.language-level {
+    color: var(--text-light);
+}
+
+/* Certifications */
+.certification-item {
+    margin-bottom: 10px;
+    font-size: 0.85em;
+}
+
+.certification-name {
+    font-weight: 600;
+}
+
+.certification-name::before {
+    content: "[x] ";
+    color: var(--primary-color);
+}
+
+.certification-meta {
+    color: var(--text-light);
+    font-size: 0.8em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Projets */
+.project-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.project-name {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.project-name::before {
+    content: "// ";
+    color: var(--primary-color);
+}
+
+.project-description {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin: 4px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.project-tech {
+    font-size: 0.75em;
+    color: var(--primary-color);
+}
+
+/* Centres d'interet */
+.interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.interest-item {
+    background-color: var(--code-bg);
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.8em;
+    border-radius: 3px;
+}
+
+/* Responsive pour ecran */
+@media screen and (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column {
+        border-left: none;
+        border-top: 3px solid var(--primary-color);
+    }
+}
+
+/* Impression */
+@media print {
+    body {
+        font-size: 10pt;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    .skill-tag, .interest-item {
+        background-color: white !important;
+        color: var(--text-color) !important;
+        border: 1px solid var(--border-color);
+    }
+}

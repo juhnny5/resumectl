@@ -1,0 +1,373 @@
+/* Theme Elegant - Bordeaux sophistique */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #722F37;
+    --secondary-color: #5a252c;
+    --accent-color: #9b4a54;
+    --text-color: #2d2d2d;
+    --text-light: #5a5a5a;
+    --bg-color: #ffffff;
+    --bg-light: #fdf8f8;
+    --border-color: #e8dede;
+    --gold: #c9a962;
+}
+
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-size: 14px;
+}
+
+.container {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: white;
+}
+
+/* En-tete */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 40px 45px;
+    position: relative;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-main h1 {
+    font-size: 2.3em;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.header-main .title {
+    font-size: 1.15em;
+    opacity: 0.95;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.contact-item {
+    margin-bottom: 5px;
+}
+
+.contact-icon {
+    display: inline-block;
+    width: 22px;
+    text-align: center;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--gold);
+}
+
+/* Contenu principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    gap: 0;
+}
+
+.left-column {
+    padding: 30px 35px;
+}
+
+.right-column {
+    background-color: var(--bg-light);
+    padding: 30px 25px;
+    border-left: 3px solid var(--gold);
+}
+
+/* Sections */
+.section {
+    margin-bottom: 28px;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 1.05em;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--primary-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+}
+
+/* Resume */
+.summary {
+    color: var(--text-light);
+    text-align: justify;
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 15px;
+}
+
+/* Experience */
+.experience-item {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-header {
+    margin-bottom: 8px;
+}
+
+.experience-title {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: var(--text-color);
+}
+
+.experience-company {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.experience-meta {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 3px;
+}
+
+.experience-description {
+    margin: 10px 0;
+    color: var(--text-light);
+}
+
+.highlights {
+    list-style: none;
+    padding-left: 0;
+}
+
+.highlights li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+}
+
+/* Education */
+.education-item {
+    margin-bottom: 18px;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-degree {
+    font-weight: 600;
+}
+
+.education-institution {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.education-meta {
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+
+/* Competences */
+.skill-category {
+    margin-bottom: 14px;
+}
+
+.skill-category:last-child {
+    margin-bottom: 0;
+}
+
+.skill-category-name {
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-bottom: 6px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tag {
+    background-color: white;
+    color: var(--text-color);
+    padding: 4px 10px;
+    font-size: 0.8em;
+    border: 1px solid var(--border-color);
+    border-left: 2px solid var(--gold);
+}
+
+/* Langues */
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted var(--border-color);
+}
+
+.language-item:last-child {
+    border-bottom: none;
+}
+
+.language-name {
+    font-weight: 500;
+}
+
+.language-level {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Certifications */
+.certification-item {
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    padding-left: 12px;
+    border-left: 2px solid var(--gold);
+}
+
+.certification-name {
+    font-weight: 500;
+}
+
+.certification-meta {
+    color: var(--text-light);
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* Projets */
+.project-item {
+    margin-bottom: 16px;
+}
+
+.project-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.project-description {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin: 4px 0;
+}
+
+.project-tech {
+    font-size: 0.8em;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+/* Centres d'interet */
+.interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.interest-item {
+    background-color: white;
+    padding: 5px 12px;
+    font-size: 0.85em;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+/* Responsive pour ecran */
+@media screen and (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column {
+        border-left: none;
+        border-top: 3px solid var(--gold);
+    }
+}
+
+/* Impression */
+@media print {
+    body {
+        font-size: 11pt;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}
