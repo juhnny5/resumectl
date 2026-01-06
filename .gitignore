@@ -16,3 +16,4 @@ Thumbs.db
 coverage.out
 
 build/
+dist/

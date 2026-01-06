@@ -1,0 +1,45 @@
+version: 2
+
+project_name: resumectl
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: ./cmd/resumectl
+    binary: resumectl
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.Commit}}
+      - -X main.date={{.Date}}
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  disable: true
+
+release:
+  github:
+    owner: juhnny5
+    name: resumectl
+  draft: false
+  prerelease: auto
