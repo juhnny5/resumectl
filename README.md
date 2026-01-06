@@ -1,5 +1,7 @@
 ![](./img/logo-header.gif)
 
+`resumectl` allows you to generate your resume from a YAML file to a PDF, HTML, or directly in your terminal.
+
 ## Demonstration
 
 ![](./img/demo.gif)
