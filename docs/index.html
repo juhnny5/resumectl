@@ -357,6 +357,20 @@
                     <h4>Single Binary</h4>
                     <p>Templates embedded in the binary. No external files needed.</p>
                 </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h4>Photo Support</h4>
+                    <p>Add your photo with grayscale filter and round/square shape options.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h4>Live Preview</h4>
+                    <p>Start a local server with <code>resumectl serve</code> for instant preview.</p>
+                </div>
             </div>
         </section>
 
@@ -396,6 +410,10 @@ resumectl generate --theme elegant
 # Custom color (any theme)
 resumectl generate --color #ff5733
 
+# Live preview with auto-reload
+resumectl serve
+resumectl serve --port 3000
+
 # Show CV in terminal
 resumectl show
 
@@ -404,6 +422,13 @@ resumectl validate
 
 # List available themes
 resumectl themes</code></pre>
+
+            <h3>Photo Options</h3>
+            <p>Add a photo to your resume with optional filters:</p>
+            <pre><code>personal:
+  photo: "photo.jpg"        # Path to your photo
+  photoGrayscale: true      # Black and white filter
+  photoShape: "square"      # "round" (default) or "square"</code></pre>
         </section>
 
         <!-- Themes -->

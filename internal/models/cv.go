@@ -15,16 +15,18 @@ type CV struct {
 
 // Personal contient les informations personnelles
 type Personal struct {
-	FirstName string `yaml:"firstName"`
-	LastName  string `yaml:"lastName"`
-	Title     string `yaml:"title"`
-	Email     string `yaml:"email"`
-	Phone     string `yaml:"phone"`
-	Location  string `yaml:"location"`
-	LinkedIn  string `yaml:"linkedin"`
-	GitHub    string `yaml:"github"`
-	Website   string `yaml:"website"`
-	Photo     string `yaml:"photo"`
+	FirstName      string `yaml:"firstName"`
+	LastName       string `yaml:"lastName"`
+	Title          string `yaml:"title"`
+	Email          string `yaml:"email"`
+	Phone          string `yaml:"phone"`
+	Location       string `yaml:"location"`
+	LinkedIn       string `yaml:"linkedin"`
+	GitHub         string `yaml:"github"`
+	Website        string `yaml:"website"`
+	Photo          string `yaml:"photo"`
+	PhotoGrayscale bool   `yaml:"photoGrayscale"` // Black and white filter
+	PhotoShape     string `yaml:"photoShape"`     // "round" (default) or "square"
 }
 
 // Experience représente une expérience professionnelle

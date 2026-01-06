@@ -11,7 +11,9 @@ personal:
   linkedin: linkedin.com/in/johndoe
   github: github.com/johndoe
   website: johndoe.dev
-  photo: "" # Path to photo (optional)
+  photo: "photo.jpeg"       # Path to photo (optional)
+  photoGrayscale: false     # Black and white filter (optional, default: false)
+  photoShape: "round"       # Photo shape: "round" (default) or "square"
 
 summary: |
   Passionate Full Stack Developer with 5 years of experience building 

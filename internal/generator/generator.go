@@ -100,6 +100,51 @@ func (g *Generator) GenerateHTML(outputPath string) error {
 		return fmt.Errorf("error writing file: %w", err)
 	}
 
+	// Copy photo to output directory if specified
+	if err := g.copyPhoto(); err != nil {
+		return fmt.Errorf("error copying photo: %w", err)
+	}
+
+	return nil
+}
+
+// copyPhoto copies the photo file to the output directory
+func (g *Generator) copyPhoto() error {
+	if g.cv.Personal.Photo == "" {
+		return nil
+	}
+
+	// Skip if it's a URL
+	if strings.HasPrefix(g.cv.Personal.Photo, "http://") || strings.HasPrefix(g.cv.Personal.Photo, "https://") {
+		return nil
+	}
+
+	// Source path
+	srcPath := g.cv.Personal.Photo
+
+	// Check if source file exists
+	if _, err := os.Stat(srcPath); os.IsNotExist(err) {
+		return fmt.Errorf("photo file not found: %s", srcPath)
+	}
+
+	// Destination path (same filename in output directory)
+	filename := filepath.Base(srcPath)
+	dstPath := filepath.Join(g.outputDir, filename)
+
+	// Read source file
+	data, err := os.ReadFile(srcPath)
+	if err != nil {
+		return fmt.Errorf("error reading photo: %w", err)
+	}
+
+	// Write to destination
+	if err := os.WriteFile(dstPath, data, 0644); err != nil {
+		return fmt.Errorf("error writing photo: %w", err)
+	}
+
+	// Update CV photo path to relative path for HTML
+	g.cv.Personal.Photo = filename
+
 	return nil
 }
 

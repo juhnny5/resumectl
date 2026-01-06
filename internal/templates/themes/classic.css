@@ -42,6 +42,26 @@ body {
     display: block;
 }
 
+.header-photo {
+    margin-bottom: 15px;
+}
+
+.header-photo img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.header-photo.photo-grayscale img {
+    filter: grayscale(100%);
+}
+
+.header-photo.photo-square img {
+    border-radius: 8px;
+}
+
 .header-main h1 {
     font-size: 2.4em;
     font-weight: 400;

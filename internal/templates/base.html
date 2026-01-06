@@ -13,6 +13,7 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
+                {{if .Personal.Photo}}<div class="header-photo{{if .Personal.PhotoGrayscale}} photo-grayscale{{end}}{{if eq .Personal.PhotoShape "square"}} photo-square{{end}}"><img src="{{.Personal.Photo}}" alt="{{.Personal.FullName}}"></div>{{end}}
                 <div class="header-main">
                     <h1>{{.Personal.FullName}}</h1>
                     <div class="title">{{.Personal.Title}}</div>

@@ -53,6 +53,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 25px;
+}
+
+.header-photo {
+    flex-shrink: 0;
+}
+
+.header-photo img {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gold);
+}
+
+.header-photo.photo-grayscale img {
+    filter: grayscale(100%);
+}
+
+.header-photo.photo-square img {
+    border-radius: 8px;
+}
+
+.header-main {
+    flex-grow: 1;
 }
 
 .header-main h1 {

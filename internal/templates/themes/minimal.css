@@ -42,6 +42,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 20px;
+}
+
+.header-photo {
+    flex-shrink: 0;
+}
+
+.header-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-photo.photo-grayscale img {
+    filter: grayscale(100%);
+}
+
+.header-photo.photo-square img {
+    border-radius: 4px;
+}
+
+.header-main {
+    flex-grow: 1;
 }
 
 .header-main h1 {
