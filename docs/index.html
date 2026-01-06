@@ -11,27 +11,448 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #ffffff;
+            --accent: #9274c2;
+            --accent-light: #a68fd4;
+            --text: #333333;
+            --text-muted: #666666;
+            --code-bg: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        }
-
-        .container {
             text-align: center;
+            padding: 2rem;
         }
 
-        img {
-            max-width: 100%;
+        .hero img {
+            max-width: 600px;
+            width: 100%;
             height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Demo */
+        .demo-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .demo-container img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        :not(pre) > code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+
+        /* Themes Grid */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .theme-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(146, 116, 194, 0.3);
+        }
+
+        .theme-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .theme-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .theme-card-content {
+            padding: 1rem;
+        }
+
+        .theme-card h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-card code {
+            font-size: 0.8rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .feature h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Hero -->
+    <section class="hero">
         <img src="img/logo-header.gif" alt="resumectl">
+        <h1>Generate your resume from a YAML file to PDF, HTML, or directly in your terminal.</h1>
+        <div class="hero-buttons">
+            <a href="https://github.com/juhnny5/resumectl" class="btn btn-primary">View on GitHub</a>
+            <a href="#installation" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#demo">↓</a>
+        </div>
+    </section>
+
+    <!-- Demo -->
+    <div class="container">
+        <section id="demo">
+            <h2>Demo</h2>
+            <div class="demo-container">
+                <img src="img/demo.gif" alt="resumectl demo">
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h4>Multiple Formats</h4>
+                    <p>Generate your resume in HTML, PDF, or view it directly in your terminal.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 2a10 10 0 0 0-10 10"/><circle cx="12" cy="12" r="4"/></svg>
+                    </div>
+                    <h4>5 Themes</h4>
+                    <p>Choose from modern, classic, minimal, elegant, or tech themes.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </div>
+                    <h4>Custom Colors</h4>
+                    <p>Customize any theme with your own primary color using <code>--color</code>.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                    </div>
+                    <h4>Single Binary</h4>
+                    <p>Templates embedded in the binary. No external files needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section id="installation">
+            <h2>Installation</h2>
+            <h3>Requirements</h3>
+            <ul style="color: var(--text-muted); margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Go 1.21+</li>
+                <li>PDF generator: Google Chrome, Chromium, or WeasyPrint</li>
+            </ul>
+            <h3>Build from source</h3>
+            <pre><code>git clone https://github.com/juhnny5/resumectl.git
+cd resumectl
+go mod tidy
+make build</code></pre>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage">
+            <h2>Usage</h2>
+            <pre><code># Generate HTML and PDF
+resumectl generate
+
+# Generate HTML only
+resumectl generate --html
+
+# Generate PDF only
+resumectl generate --pdf
+
+# Use custom YAML file
+resumectl generate -d my_cv.yaml
+
+# Use specific theme
+resumectl generate --theme elegant
+
+# Custom color (any theme)
+resumectl generate --color #ff5733
+
+# Show CV in terminal
+resumectl show
+
+# Validate YAML file
+resumectl validate
+
+# List available themes
+resumectl themes</code></pre>
+        </section>
+
+        <!-- Themes -->
+        <section id="themes">
+            <h2>Themes</h2>
+            <p>Choose from 5 beautiful themes for your resume:</p>
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <img src="img/modern-theme.png" alt="Modern theme">
+                    <div class="theme-card-content">
+                        <h4>Modern</h4>
+                        <code>--theme modern</code>
+                    </div>
+                </div>
+                <div class="theme-card">
+                    <img src="img/classic-theme.png" alt="Classic theme">
+                    <div class="theme-card-content">
+                        <h4>Classic</h4>
+                        <code>--theme classic</code>
+                    </div>
+                </div>
+                <div class="theme-card">
+                    <img src="img/minimal-theme.png" alt="Minimal theme">
+                    <div class="theme-card-content">
+                        <h4>Minimal</h4>
+                        <code>--theme minimal</code>
+                    </div>
+                </div>
+                <div class="theme-card">
+                    <img src="img/elegant-theme.png" alt="Elegant theme">
+                    <div class="theme-card-content">
+                        <h4>Elegant</h4>
+                        <code>--theme elegant</code>
+                    </div>
+                </div>
+                <div class="theme-card">
+                    <img src="img/tech-theme.png" alt="Tech theme">
+                    <div class="theme-card-content">
+                        <h4>Tech</h4>
+                        <code>--theme tech</code>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ by <a href="https://github.com/juhnny5">juhnny5</a></p>
+    </footer>
 </body>
 </html>
