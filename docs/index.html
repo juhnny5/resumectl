@@ -326,6 +326,7 @@
         <h1>Generate your resume from a YAML file to PDF, HTML, or directly in your terminal.</h1>
         <div class="hero-buttons">
             <a href="https://github.com/juhnny5/resumectl" class="btn btn-primary">View on GitHub</a>
+            <a href="#init" class="btn btn-secondary">Init from LinkedIn</a>
             <a href="#installation" class="btn btn-secondary">Get Started</a>
         </div>
         <div class="scroll-indicator">
@@ -388,6 +389,20 @@
                     <h4>Live Preview</h4>
                     <p>Start a local server with <code>resumectl serve</code> for instant preview.</p>
                 </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </div>
+                    <h4>LinkedIn Import</h4>
+                    <p>Import your profile data directly from LinkedIn with <code>resumectl init</code>.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    </div>
+                    <h4>GitHub Projects</h4>
+                    <p>Automatically add your top GitHub projects sorted by stars.</p>
+                </div>
             </div>
         </section>
 
@@ -404,6 +419,40 @@
 cd resumectl
 go mod tidy
 make build</code></pre>
+        </section>
+
+        <!-- Init Command -->
+        <section id="init">
+            <h2>Initialize from LinkedIn & GitHub</h2>
+            <p>The <code>init</code> command lets you bootstrap your CV by importing data from LinkedIn and GitHub.</p>
+            
+            <h3>Quick Start</h3>
+            <pre><code># Create an empty CV template
+resumectl init
+
+# Import from LinkedIn (public data only)
+resumectl init --linkedin johndoe
+
+# Import with full LinkedIn data (requires cookie)
+resumectl init --linkedin johndoe --cookie "YOUR_LI_AT_COOKIE"
+
+# Add top GitHub projects
+resumectl init --github yourusername
+
+# Combine both platforms
+resumectl init --linkedin johndoe --cookie "AQEDAx..." --github yourusername
+
+# Customize number of GitHub projects (default: 5)
+resumectl init --github yourusername --projects 10</code></pre>
+
+            <h3>LinkedIn Authentication</h3>
+            <p>To get full profile data (experiences, education, skills), you need your LinkedIn session cookie:</p>
+            <ol style="color: var(--text-muted); margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Log in to LinkedIn in your browser</li>
+                <li>Open Developer Tools (F12)</li>
+                <li>Go to <strong>Application</strong> → <strong>Cookies</strong> → <code>linkedin.com</code></li>
+                <li>Copy the value of the <code>li_at</code> cookie</li>
+            </ol>
         </section>
 
         <!-- Usage -->

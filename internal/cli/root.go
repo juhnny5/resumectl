@@ -30,6 +30,7 @@ var (
 	outputDir    string
 	theme        string
 	primaryColor string
+	DebugMode    bool
 )
 
 var rootCmd = &cobra.Command{
@@ -67,4 +68,5 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&outputDir, "output", "o", "output", "Output directory")
 	rootCmd.PersistentFlags().StringVar(&theme, "theme", "modern", "CV theme ("+templates.GetThemeNames()+")")
 	rootCmd.PersistentFlags().StringVar(&primaryColor, "color", "", "Custom primary color for any theme (hex, e.g. #ff5733)")
+	rootCmd.PersistentFlags().BoolVar(&DebugMode, "debug", false, "Enable debug output")
 }

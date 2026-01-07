@@ -15,7 +15,7 @@
 
 package models
 
-// CV représente la structure complète d'un CV
+// CV represents the complete structure of a resume
 type CV struct {
 	Personal       Personal        `yaml:"personal"`
 	Summary        string          `yaml:"summary"`
@@ -28,7 +28,7 @@ type CV struct {
 	Interests      []string        `yaml:"interests"`
 }
 
-// Personal contient les informations personnelles
+// Personal contains personal information
 type Personal struct {
 	FirstName      string `yaml:"firstName"`
 	LastName       string `yaml:"lastName"`
@@ -44,7 +44,7 @@ type Personal struct {
 	PhotoShape     string `yaml:"photoShape"`     // "round" (default) or "square"
 }
 
-// Experience représente une expérience professionnelle
+// Experience represents a work experience
 type Experience struct {
 	Company     string   `yaml:"company"`
 	Position    string   `yaml:"position"`
@@ -55,7 +55,7 @@ type Experience struct {
 	Highlights  []string `yaml:"highlights"`
 }
 
-// Education représente une formation
+// Education represents an educational background
 type Education struct {
 	Institution string `yaml:"institution"`
 	Degree      string `yaml:"degree"`
@@ -66,26 +66,26 @@ type Education struct {
 	Description string `yaml:"description"`
 }
 
-// SkillCategory représente une catégorie de compétences
+// SkillCategory represents a skill category
 type SkillCategory struct {
 	Category string   `yaml:"category"`
 	Items    []string `yaml:"items"`
 }
 
-// Language représente une langue parlée
+// Language represents a spoken language
 type Language struct {
 	Name  string `yaml:"name"`
 	Level string `yaml:"level"`
 }
 
-// Certification représente une certification
+// Certification represents a certification
 type Certification struct {
 	Name   string `yaml:"name"`
 	Issuer string `yaml:"issuer"`
 	Date   string `yaml:"date"`
 }
 
-// Project représente un projet personnel
+// Project represents a personal project
 type Project struct {
 	Name         string   `yaml:"name"`
 	Description  string   `yaml:"description"`
@@ -93,12 +93,12 @@ type Project struct {
 	Technologies []string `yaml:"technologies"`
 }
 
-// FullName retourne le nom complet
+// FullName returns the full name
 func (p Personal) FullName() string {
 	return p.FirstName + " " + p.LastName
 }
 
-// FormatDate formate une date pour l'affichage
+// FormatDate formats a date for display
 func FormatDate(date string) string {
 	if date == "present" || date == "présent" {
 		return "Présent"
