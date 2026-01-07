@@ -101,9 +101,4 @@ resumectl themes
 resumectl serve
 ```
 
-## Documentation
-
-- [Init Command](./docs/init.md) - Initialize CV from LinkedIn/GitHub
-- [Themes](./THEMES.md) - Available themes and customization
-
 ![](./img/logo-footer.png)
