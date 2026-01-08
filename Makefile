@@ -15,7 +15,7 @@ GOGET=$(GOCMD) get
 GOMOD=$(GOCMD) mod
 
 # Build directories
-BUILD_DIR=build
+BUILD_DIR=bin
 CMD_DIR=./cmd/resumectl
 
 ## help: Show this help message

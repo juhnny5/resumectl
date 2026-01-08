@@ -15,5 +15,6 @@ Thumbs.db
 *.test
 coverage.out
 
-build/
+# Binary output
+bin/
 dist/
