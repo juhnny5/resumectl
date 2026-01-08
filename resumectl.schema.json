@@ -1,0 +1,253 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/juhnny5/resumectl/schemas/cv.schema.json",
+  "title": "resumectl CV Schema",
+  "description": "JSON Schema for resumectl CV YAML configuration files",
+  "type": "object",
+  "properties": {
+    "personal": {
+      "type": "object",
+      "description": "Personal information",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "Your first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Your last name"
+        },
+        "title": {
+          "type": "string",
+          "description": "Your professional title (e.g., 'Full Stack Developer')"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Your email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Your phone number"
+        },
+        "location": {
+          "type": "string",
+          "description": "Your location (e.g., 'Paris, France')"
+        },
+        "linkedin": {
+          "type": "string",
+          "description": "Your LinkedIn profile URL"
+        },
+        "github": {
+          "type": "string",
+          "description": "Your GitHub profile URL"
+        },
+        "website": {
+          "type": "string",
+          "description": "Your personal website URL"
+        },
+        "photo": {
+          "type": "string",
+          "description": "Path to your profile photo (optional)"
+        },
+        "photoGrayscale": {
+          "type": "boolean",
+          "default": false,
+          "description": "Apply black and white filter to photo"
+        },
+        "photoShape": {
+          "type": "string",
+          "enum": ["round", "square"],
+          "default": "round",
+          "description": "Photo shape: 'round' (default) or 'square'"
+        }
+      },
+      "required": ["firstName", "lastName", "title", "email"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "Professional summary or objective statement"
+    },
+    "experience": {
+      "type": "array",
+      "description": "Work experience entries",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string",
+            "description": "Company name"
+          },
+          "position": {
+            "type": "string",
+            "description": "Job title/position"
+          },
+          "location": {
+            "type": "string",
+            "description": "Job location"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Start date (format: YYYY-MM or YYYY)",
+            "pattern": "^\\d{4}(-\\d{2})?$"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End date (format: YYYY-MM, YYYY, or 'present')",
+            "pattern": "^(\\d{4}(-\\d{2})?|present|présent)$"
+          },
+          "description": {
+            "type": "string",
+            "description": "Job description"
+          },
+          "highlights": {
+            "type": "array",
+            "description": "Key achievements and responsibilities",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["company", "position", "startDate"]
+      }
+    },
+    "education": {
+      "type": "array",
+      "description": "Education entries",
+      "items": {
+        "type": "object",
+        "properties": {
+          "institution": {
+            "type": "string",
+            "description": "School or university name"
+          },
+          "degree": {
+            "type": "string",
+            "description": "Degree type (e.g., 'Bachelor', 'Master')"
+          },
+          "field": {
+            "type": "string",
+            "description": "Field of study"
+          },
+          "location": {
+            "type": "string",
+            "description": "Institution location"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Start date (format: YYYY-MM or YYYY)",
+            "pattern": "^\\d{4}(-\\d{2})?$"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End date (format: YYYY-MM, YYYY, or 'present')",
+            "pattern": "^(\\d{4}(-\\d{2})?|present|présent)$"
+          },
+          "description": {
+            "type": "string",
+            "description": "Additional details about education"
+          }
+        },
+        "required": ["institution", "degree"]
+      }
+    },
+    "skills": {
+      "type": "array",
+      "description": "Skills grouped by category",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Skill category name (e.g., 'Languages', 'Frameworks')"
+          },
+          "items": {
+            "type": "array",
+            "description": "List of skills in this category",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["category", "items"]
+      }
+    },
+    "languages": {
+      "type": "array",
+      "description": "Spoken languages",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Language name"
+          },
+          "level": {
+            "type": "string",
+            "description": "Proficiency level (e.g., 'Native', 'Fluent', 'B2')"
+          }
+        },
+        "required": ["name", "level"]
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "description": "Professional certifications",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Certification name"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "Issuing organization"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date obtained (format: YYYY or YYYY-MM)"
+          }
+        },
+        "required": ["name", "issuer"]
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "Personal or open source projects",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Project name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Project description"
+          },
+          "url": {
+            "type": "string",
+            "description": "Project URL"
+          },
+          "technologies": {
+            "type": "array",
+            "description": "Technologies used",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["name", "description"]
+      }
+    },
+    "interests": {
+      "type": "array",
+      "description": "Personal interests and hobbies",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["personal"]
+}

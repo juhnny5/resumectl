@@ -49,12 +49,12 @@ Glamour is used if glow is not available or with --inline.
 
 Available styles: auto, dark, light, dracula, tokyo-night, notty
 
-Examples:
-  resumectl show
-  resumectl show --style dracula
-  resumectl show --pager        # Force glow pager usage
-  resumectl show --inline       # Force inline display (glamour)
-  resumectl show -d my_cv.yaml`,
+Usage examples:
+  resumectl show                  # Display CV in terminal
+  resumectl show --style dracula  # Use dracula style
+  resumectl show --pager          # Force glow pager usage
+  resumectl show --inline         # Force inline display (glamour)
+  resumectl show -d my_cv.yaml    # Use a custom YAML file`,
 	Run: runShow,
 }
 

@@ -30,9 +30,9 @@ var themesCmd = &cobra.Command{
 
 Each theme offers a different visual style for your HTML and PDF CV.
 
-Examples:
-  resumectl themes
-  resumectl generate --theme elegant`,
+Usage examples:
+  resumectl themes                   # List all available themes
+  resumectl generate --theme elegant # Use a specific theme`,
 	Run: runThemes,
 }
 

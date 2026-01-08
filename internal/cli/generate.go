@@ -40,14 +40,14 @@ Use --html or --pdf to generate a single format.
 Use --theme to choose a theme (modern, classic, minimal, elegant, tech).
 Use --color to customize the primary color of any theme.
 
-Examples:
-  resumectl generate                         # Generate HTML and PDF (modern theme)
-  resumectl generate --theme elegant         # Use the elegant theme
-  resumectl generate --color #ff5733         # Custom orange color
-  resumectl generate --theme tech --color #8b5cf6  # Tech theme with purple
-  resumectl generate --html                  # Generate HTML only
-  resumectl generate --pdf                   # Generate PDF only
-  resumectl generate -d my_cv.yaml           # Use a custom YAML file`,
+Usage examples:
+  resumectl generate                              # Generate HTML and PDF (modern theme)
+  resumectl generate --theme elegant              # Use the elegant theme
+  resumectl generate --color #ff5733             # Custom orange color
+  resumectl generate --theme tech --color #8b5cf6 # Tech theme with purple
+  resumectl generate --html                       # Generate HTML only
+  resumectl generate --pdf                        # Generate PDF only
+  resumectl generate -d my_cv.yaml                # Use a custom YAML file`,
 	Run: runGenerate,
 }
 

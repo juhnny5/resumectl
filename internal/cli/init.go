@@ -57,14 +57,14 @@ LinkedIn session cookie (li_at). To get it:
   2. Open Developer Tools (F12) > Application > Cookies > linkedin.com
   3. Copy the value of the 'li_at' cookie
 
-Examples:
-  resumectl init                                    # Create an empty template
+Usage examples:
+  resumectl init                                     # Create an empty template
   resumectl init --linkedin https://linkedin.com/in/johndoe
   resumectl init --linkedin johndoe --cookie "AQEDAx..."  # With auth for full data
-  resumectl init --github juhnny5                   # Add top GitHub projects
-  resumectl init --github juhnny5 --projects 10    # Add top 10 projects
-  resumectl init -f my-cv.yaml                      # Custom output file
-  resumectl init --force                            # Overwrite existing file`,
+  resumectl init --github juhnny5                    # Add top GitHub projects
+  resumectl init --github juhnny5 --projects 10     # Add top 10 projects
+  resumectl init -f my-cv.yaml                       # Custom output file
+  resumectl init --force                             # Overwrite existing file`,
 	Run: runInit,
 }
 

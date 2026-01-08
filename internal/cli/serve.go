@@ -45,7 +45,7 @@ var serveCmd = &cobra.Command{
 The server watches for changes in your YAML file and automatically
 regenerates the HTML, refreshing the browser automatically.
 
-Examples:
+Usage examples:
   resumectl serve                    # Start server on port 8080
   resumectl serve --port 3000        # Use a custom port
   resumectl serve -d my_cv.yaml      # Use a custom YAML file

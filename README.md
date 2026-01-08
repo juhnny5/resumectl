@@ -101,4 +101,91 @@ resumectl themes
 resumectl serve
 ```
 
-![](./img/logo-footer.png)
+## Shell Completion
+
+`resumectl` supports shell completion for **Bash**, **Zsh**, **Fish**, and **PowerShell**.
+
+### Bash
+
+```bash
+# Load completions in current session
+source <(resumectl completion bash)
+
+# Load completions for each session (Linux)
+resumectl completion bash > /etc/bash_completion.d/resumectl
+
+# Load completions for each session (macOS with Homebrew)
+resumectl completion bash > $(brew --prefix)/etc/bash_completion.d/resumectl
+```
+
+### Zsh
+
+```bash
+# Enable shell completion if not already done
+echo "autoload -U compinit; compinit" >> ~/.zshrc
+
+# Load completions for each session
+resumectl completion zsh > "${fpath[1]}/_resumectl"
+
+# Restart your shell or run: source ~/.zshrc
+```
+
+### Fish
+
+```bash
+# Load completions in current session
+resumectl completion fish | source
+
+# Load completions for each session
+resumectl completion fish > ~/.config/fish/completions/resumectl.fish
+```
+
+### PowerShell
+
+```powershell
+# Load completions in current session
+resumectl completion powershell | Out-String | Invoke-Expression
+
+# Load completions for each session (add to your profile)
+resumectl completion powershell > resumectl.ps1
+```
+
+## YAML Auto-Completion (Editor)
+
+A JSON Schema is provided to enable auto-completion and validation in your editor when editing CV YAML files.
+
+### VS Code
+
+Add the following to your `.vscode/settings.json`:
+
+```json
+{
+  "yaml.schemas": {
+    "./resumectl.schema.json": ["cv.yaml", "**/cv.yaml", "examples/*.yaml"]
+  }
+}
+```
+
+Make sure you have the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) installed.
+
+### IntelliJ IDEA / JetBrains IDEs
+
+1. Open Settings → Languages & Frameworks → Schemas and DTDs → JSON Schema Mappings
+2. Add a new mapping:
+   - Schema file: `resumectl.schema.json`
+   - File pattern: `cv.yaml` or `*.cv.yaml`
+
+### Neovim (with yaml-language-server)
+
+Add to your YAML file header:
+
+```yaml
+# yaml-language-server: $schema=./resumectl.schema.json
+---
+personal:
+  ...
+```
+
+Or configure in your LSP settings.
+
+![](./assets/logo-footer.png)

@@ -24,6 +24,10 @@ import (
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Display the program version",
+	Long: `Display the current version of resumectl.
+
+Usage examples:
+  resumectl version    # Display version information`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("resumectl version %s\n", Version)
 	},

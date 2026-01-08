@@ -30,9 +30,9 @@ var validateCmd = &cobra.Command{
 	Long: `Validate the syntax and structure of the CV YAML file
 without generating output files.
 
-Examples:
-  resumectl validate
-  resumectl validate -d my_cv.yaml`,
+Usage examples:
+  resumectl validate              # Validate default cv.yaml
+  resumectl validate -d my_cv.yaml # Validate a custom YAML file`,
 	Run: runValidate,
 }
 
