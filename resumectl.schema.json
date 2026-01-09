@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/juhnny5/resumectl/schemas/cv.schema.json",
+  "$id": "https://github.com/juhnny5/resumectl/resumectl.schema.json",
   "title": "resumectl CV Schema",
   "description": "JSON Schema for resumectl CV YAML configuration files",
   "type": "object",
