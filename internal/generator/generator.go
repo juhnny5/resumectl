@@ -250,6 +250,7 @@ func (g *Generator) generateWithChromium(htmlPath, pdfPath string) error {
 		"--no-sandbox",
 		"--print-to-pdf="+absPDFPath,
 		"--print-to-pdf-no-header",
+		"--print-to-pdf-no-header-footer",
 		"file://"+absHTMLPath)
 
 	output, err := cmd.CombinedOutput()
