@@ -358,6 +358,10 @@ body {
 
 /* Impression */
 @media print {
+    @page {
+        margin: 0;
+    }
+
     body {
         font-size: 10pt;
     }
