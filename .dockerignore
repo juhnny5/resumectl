@@ -1,0 +1,10 @@
+# Build-related files
+Dockerfile
+bin/
+
+# Unused files
+docs/
+
+# Generated files
+output
+*.yaml

@@ -24,8 +24,12 @@ For reference, you can use the examples in `examples/`.
 ### Build
 
 ```bash
+# Build resumectl binary
 go mod tidy
 make build
+
+# Build resumectl Docker image
+docker build -t yourname/resumectl .
 ```
 
 ## Usage
@@ -100,6 +104,29 @@ resumectl themes
 # Live preview with hot reload
 resumectl serve
 ```
+
+### Docker
+
+Any of the previously listed commands can be run via Docker, using your built image
+
+```bash
+# Syntax
+docker run --rm -v $PWD:/work -u $(id -u):$(id -g) yourname/resumectl <command>
+
+# Examples
+docker run --rm -v $PWD:/work -u $(id -u):$(id -g) yourname/resumectl init
+docker run --rm -v $PWD:/work -u $(id -u):$(id -g) yourname/resumectl generate
+docker run --rm -v $PWD:/work -u $(id -u):$(id -g) -p 8080:8080 yourname/resumectl serve
+```
+
+<details>
+  <summary>Docker command breakdown</summary>
+
+  - `-v $PWD:/work` so the generated files end up in your current directory
+  - `-u $(id -u):$(id -g)` so the generated files get the proper permissions (!= root) in your filesystem
+  - `-p 8080:8080` to expose the preview webservice on http://localhost:8080
+  
+</details>
 
 ### Shell Completion
 
